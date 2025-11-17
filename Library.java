@@ -6,19 +6,16 @@ import java.util.Set;
 public class Library extends Building implements LibraryRequirements {
     
   private Hashtable<String, Boolean> collection;
-  private boolean hasElevator;
 
   /**
    * Constructor, creates empty collection
    * @param name string, the name of the building
    * @param address string, the address of the building
    * @param nFloors int, the number of floors of the building
-   * @param e boolean, if the library has an elevator or not
    */
-  public Library(String name, String address, int nFloors, boolean e) {
+  public Library(String name, String address, int nFloors) {
     super(name, address, nFloors);
     this.collection = new Hashtable<String, Boolean>();
-    this.hasElevator = e;
     System.out.println("You have built a library: 📖");
   }
 
@@ -107,38 +104,33 @@ public class Library extends Building implements LibraryRequirements {
     }
   }
 
-  // Overriding Methods
+  // Overriding Methods - Library has to have elevator
 
   /**
   * Prints availble methods for navigation within the building
   */
   public void showOptions() {
-    if (this.hasElevator == true){
-      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
-    }else{
-      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");
-    }
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + addTitle()\n + removeTitle()\n + checkOut()\n + returnBook()\n + containsTitle()\n + isAvailable()\n + printCollection()");
   }
+
   /**
   * Moves user to requested floor if there is an elevator, if not throws exceptin
   * @param floorNum floor for user to move to
   */
   public void goToFloor(int floorNum){
-    if(this.hasElevator == true){
-      this.activeFloor = floorNum;
-    }else{
-      throw new RuntimeException("There is no elevator.");
-    }
+    super.goToFloor(floorNum);
   }
 
 
   public static void main(String[] args) {
-    Library neilson = new Library("Neilson", "1 Neilson Drive", 5, true);
+    Library neilson = new Library("Neilson", "1 Neilson Drive", 5);
     neilson.showOptions();
+    neilson.enter();
     neilson.goToFloor(3);
 
-    Library king = new Library("King", "1 Paradise Drive", 5, false);
+    Library king = new Library("King", "1 Paradise Drive", 5);
     king.showOptions();
+    king.enter();
     king.goToFloor(3);
   }
 }

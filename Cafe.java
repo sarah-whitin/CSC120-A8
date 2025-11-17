@@ -8,11 +8,36 @@ public class Cafe extends Building implements CafeRequirements {
     private int nCreams;
     private int nCups;
 
+    /* Default constructor */
+    public Cafe() {
+        this("<Name Unknown>", "<Address Unknown>", 1);
+        this.nCoffeeOunces = 20000;
+        this.nSugarPackets = 1500;
+        this.nCreams = 1500;
+        this.nCups = 2000;
+    }
+
     /**
-     * Constructor, sets default inventory
+     * Overloaded constructor with address only 
+     * @param address string, the address of the building
+     */
+    public Cafe(String address) {
+        this(); // Call default constructor
+        this.address = address; // Override address
+    }
+    
+    /** Overloaded constructor with name, address 
      * @param name string, the name of the building
      * @param address string, the address of the building
-     * @param nFloors int, the number of floors of the building
+     */
+    public Cafe(String name, String address) {
+        this(name, address, 1); // Call full constructor with 1 floor
+    }
+
+    /**
+     * Full constructor, sets default inventory
+     * @param name string, the name of the building
+     * @param address string, the address of the building
      */
     public Cafe(String name, String address, int nFloors) {
         super(name, address, nFloors);
@@ -96,7 +121,7 @@ public class Cafe extends Building implements CafeRequirements {
      * Prints availble methods for navigation within the building by overriding parent class since there is no elevator or more than one floor in cafe
      */
     public void showOptions(){
-        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");     
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + sellCoffee()");     
     }
 
     /**

@@ -75,9 +75,9 @@ public class House extends Building implements HouseRequirements{
   */
   public void showOptions() {
     if (this.hasElevator == true){
-      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
+      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + hasDiningRoom()\n + nResidents()\n + moveIn()\n + moveOut()\n + isResident()");
     }else{
-      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");
+      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + hasDiningRoom()\n + nResidents()\n + moveIn()\n + moveOut()\n + isResident()");
     }
   }
 
@@ -87,11 +87,12 @@ public class House extends Building implements HouseRequirements{
    */
   public void goToFloor(int floorNum){
     if(this.hasElevator == true){
-      this.activeFloor = floorNum;
+      super.goToFloor(floorNum);;
     }else{
       throw new RuntimeException("There is no elevator.");
     }
   }
+
   public static void main(String[] args) {
     House wilson = new House("Wilson", "1 Paradise", 5, true, false);
     System.out.println(wilson.hasDiningRoom());
@@ -105,6 +106,7 @@ public class House extends Building implements HouseRequirements{
     wilson.moveOut(sox);
     System.out.println(wilson.isResident(sox));
     System.out.println(wilson.nResidents());
+    wilson.showOptions();
   }
 
 }
