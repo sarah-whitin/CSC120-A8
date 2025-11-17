@@ -91,10 +91,18 @@ public class Cafe extends Building implements CafeRequirements {
     }
 
     // Overriding Navigation Methods
+
+    /**
+     * Prints availble methods for navigation within the building by overriding parent class since there is no elevator or more than one floor in cafe
+     */
     public void showOptions(){
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");     
     }
 
+    /**
+     * Overrides parent method to throw exception since there is no elevator in CC
+     * @param floor the floor requested to go to
+     */
     public void goToFloor(int floor){
         throw new RuntimeException("There is only one floor in the cafe.");
     }

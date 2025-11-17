@@ -68,22 +68,30 @@ public class House extends Building implements HouseRequirements{
     return livesHere;
   }
 
-// Overriding Navigation Methods
-public void showOptions() {
-  if (this.hasElevator == true){
-    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
-  }else{
-    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");
-  }
-}
+  // Overriding Navigation Methods
 
-public void goToFloor(int floorNum){
-  if(this.hasElevator == true){
-    this.activeFloor = floorNum;
-  }else{
-    throw new RuntimeException("There is only one floor in the cafe.");
+  /**
+  * Prints availble methods for navigation within the building
+  */
+  public void showOptions() {
+    if (this.hasElevator == true){
+      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
+    }else{
+      System.out.println("Available options at " + this.name + ":\n + enter() \n + exit()");
+    }
   }
-}
+
+  /**
+   * Moves user to requested floor if there is an elevator, if not throws exceptin
+   * @param floorNum floor for user to move to
+   */
+  public void goToFloor(int floorNum){
+    if(this.hasElevator == true){
+      this.activeFloor = floorNum;
+    }else{
+      throw new RuntimeException("There is only one floor in the cafe.");
+    }
+  }
   public static void main(String[] args) {
     House wilson = new House("Wilson", "1 Paradise", 5, true, false);
     System.out.println(wilson.hasDiningRoom());
