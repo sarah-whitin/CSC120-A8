@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class House extends Building implements HouseRequirements{
   private ArrayList<Student> residents;
-  // The <Student> tells Java what kind of data we plan to store IN the ArrayList
   private boolean hasDiningRoom;
   private boolean hasElevator;
 
