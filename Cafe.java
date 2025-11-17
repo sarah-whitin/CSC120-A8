@@ -8,13 +8,16 @@ public class Cafe extends Building implements CafeRequirements {
     private int nCreams;
     private int nCups;
 
-    /* Default constructor */
+    /**
+     * Default constructor 
+     */
     public Cafe() {
-        this("<Name Unknown>", "<Address Unknown>", 1);
+        super("<Name Unknown>", "<Address Unknown>", 1);
         this.nCoffeeOunces = 20000;
         this.nSugarPackets = 1500;
         this.nCreams = 1500;
         this.nCups = 2000;
+        System.out.println("You have built a cafe: ☕");
     }
 
     /**
@@ -22,8 +25,12 @@ public class Cafe extends Building implements CafeRequirements {
      * @param address string, the address of the building
      */
     public Cafe(String address) {
-        this(); // Call default constructor
-        this.address = address; // Override address
+        super(address); 
+        this.nCoffeeOunces = 20000;
+        this.nSugarPackets = 1500;
+        this.nCreams = 1500;
+        this.nCups = 2000;
+        System.out.println("You have built a cafe: ☕");
     }
     
     /** Overloaded constructor with name, address 
@@ -31,11 +38,16 @@ public class Cafe extends Building implements CafeRequirements {
      * @param address string, the address of the building
      */
     public Cafe(String name, String address) {
-        this(name, address, 1); // Call full constructor with 1 floor
+        super(name, address, 1); // Call full constructor with 1 floor
+        this.nCoffeeOunces = 20000;
+        this.nSugarPackets = 1500;
+        this.nCreams = 1500;
+        this.nCups = 2000;
+        System.out.println("You have built a cafe: ☕");
     }
 
     /**
-     * Full constructor, sets default inventory
+     * Full constructor
      * @param name string, the name of the building
      * @param address string, the address of the building
      */
@@ -45,6 +57,7 @@ public class Cafe extends Building implements CafeRequirements {
         this.nSugarPackets = 1500;
         this.nCreams = 1500;
         this.nCups = 2000;
+        System.out.println("You have built a cafe: ☕");
     }
 
     /**
@@ -134,7 +147,8 @@ public class Cafe extends Building implements CafeRequirements {
 
     public static void main(String[] args) {
         Cafe compass = new Cafe("Compass Cafe", "1 Chapin Way", 3);
-        compass.goToFloor(2);
+        compass.showOptions();
+        //  compass.goToFloor(2);
     }
     
 }

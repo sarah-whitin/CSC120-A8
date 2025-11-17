@@ -1,14 +1,45 @@
 /* This is a stub for the Library class */
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
 
 public class Library extends Building implements LibraryRequirements {
     
   private Hashtable<String, Boolean> collection;
+  
+  /**
+  * Default constructor, no dingin room & no elevator, creates empty collection
+  */
+  public Library() {
+    super("<Name Unknown>", "<Address Unknown>", 2);
+    this.collection = new Hashtable<String, Boolean>();
+    System.out.println("You have built a library: 📖");
+  }
 
   /**
-   * Constructor, creates empty collection
+   * Overloaded constructor with address only, creates empty collection
+   * @param address string, the address of the building
+   */
+  public Library(String address) {
+      super(address); 
+      this.nFloors = 2;
+      this.collection = new Hashtable<String, Boolean>();
+      System.out.println("You have built a library: 📖");
+  }
+  
+  /** Overloaded constructor with name, address, creates empty collection
+   * @param name string, the name of the building
+   * @param address string, the address of the building
+   */
+  public Library(String name, String address) {
+      super(name, address, 2);
+      this.collection = new Hashtable<String, Boolean>();
+      System.out.println("You have built a library: 📖");
+    }
+
+  /**
+   * Full constructor, creates empty collection
    * @param name string, the name of the building
    * @param address string, the address of the building
    * @param nFloors int, the number of floors of the building

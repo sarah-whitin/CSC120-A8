@@ -8,8 +8,69 @@ public class House extends Building implements HouseRequirements{
   private boolean hasDiningRoom;
   private boolean hasElevator;
 
+    /**
+     * Default constructor, no dingin room & no elevator
+     */
+    public House() {
+      super("<Name Unknown>", "<Address Unknown>", 1);
+      this.residents = new ArrayList<Student>();
+      this.hasDiningRoom = false;
+      this.hasElevator = false;
+      System.out.println("You have built a house: 🏠");
+  }
+
   /**
-   * Constructor
+   * Overloaded constructor with address only 
+   * @param address string, the address of the building
+   */
+  public House(String address) {
+      super(address); // Call default constructor
+      this.hasDiningRoom = false;
+      this.hasElevator = false;
+      System.out.println("You have built a house: 🏠");
+  }
+  
+  /** Overloaded constructor with name, address 
+   * @param name string, the name of the building
+   * @param address string, the address of the building
+   */
+  public House(String name, String address) {
+      super(name, address, 1); // Call full constructor with 1 floor
+      this.hasDiningRoom = false;
+      this.hasElevator = false;
+      System.out.println("You have built a house: 🏠");
+    }
+
+  /**
+   * Overloaded constructor with name, address, nFloors
+   * @param name string, the name of the building
+   * @param address string, the address of the building
+   * @param nFloors int, the number of floors of the building
+   */
+  public House(String name, String address, int nFloors) {
+      super(name, address, nFloors);
+      this.hasDiningRoom = false;
+      this.hasElevator = false;
+      System.out.println("You have built a house: 🏠");
+  }
+
+  /**
+   * Overloaded constructor with name, address, nFloors, hasDiningRoom
+   * @param name string, the name of the building
+   * @param address string, the address of the building
+   * @param nFloors int, the number of floors of the building
+   * @param d boolean, if the house has a dining room or not
+   */
+  public House(String name, String address, int nFloors, boolean d) {
+    super(name, address, nFloors);
+    this.hasDiningRoom = d;
+    this.hasElevator = false;
+    System.out.println("You have built a house: 🏠");
+}
+
+  
+  /**
+   * Full Constructor
    * @param name string, the name of the building
    * @param address string, the address of the building
    * @param nFloors int, the number of floors of the building

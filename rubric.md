@@ -14,7 +14,7 @@ YES 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the modified `
 
 ### Level 1: Method `Overrides` (4 pts)
 
-_____ 1 pt: The `House`, `Library`, and `Cafe` classes all override the `showOptions()` method to include their additional interactive methods
+YES 1 pt: The `House`, `Library`, and `Cafe` classes all override the `showOptions()` method to include their additional interactive methods
 
 YES 1 pt: The `Library` class has a `goToFloor(...)` method that allows movement between non-adjacent floors
 
