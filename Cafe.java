@@ -109,11 +109,7 @@ public class Cafe extends Building implements CafeRequirements {
 
     public static void main(String[] args) {
         Cafe compass = new Cafe("Compass Cafe", "1 Chapin Way", 3);
-        compass.sellCoffee(19000, 0, 0);
-        System.out.println(compass.nCoffeeOunces);
-        compass.sellCoffee(3000, 0, 0);
-        System.out.println(compass.nCoffeeOunces);
-        System.out.println(compass.nCups);
+        compass.goToFloor(2);
     }
     
 }

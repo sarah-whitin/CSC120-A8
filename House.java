@@ -89,7 +89,7 @@ public class House extends Building implements HouseRequirements{
     if(this.hasElevator == true){
       this.activeFloor = floorNum;
     }else{
-      throw new RuntimeException("There is only one floor in the cafe.");
+      throw new RuntimeException("There is no elevator.");
     }
   }
   public static void main(String[] args) {

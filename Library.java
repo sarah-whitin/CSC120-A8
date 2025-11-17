@@ -127,19 +127,18 @@ public class Library extends Building implements LibraryRequirements {
     if(this.hasElevator == true){
       this.activeFloor = floorNum;
     }else{
-      throw new RuntimeException("There is only one floor in the cafe.");
+      throw new RuntimeException("There is no elevator.");
     }
   }
 
 
   public static void main(String[] args) {
     Library neilson = new Library("Neilson", "1 Neilson Drive", 5, true);
-    neilson.addTitle("Dr. Seuss");
-    neilson.addTitle("Harry Potter");
-    neilson.checkOut("Dr. Seuss");
-    // neilson.removeTitle("Dr. Seuss");
-    // System.out.println(neilson.containsTitle("Dr. Seuss"));
-    // System.out.println(neilson.isAvailable("Dr. Seuss"));
-    neilson.printCollection();
+    neilson.showOptions();
+    neilson.goToFloor(3);
+
+    Library king = new Library("King", "1 Paradise Drive", 5, false);
+    king.showOptions();
+    king.goToFloor(3);
   }
 }
