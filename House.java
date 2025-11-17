@@ -8,15 +8,15 @@ public class House extends Building implements HouseRequirements{
   private boolean hasDiningRoom;
   private boolean hasElevator;
 
-    /**
-     * Default constructor, no dingin room & no elevator
-     */
-    public House() {
-      super("<Name Unknown>", "<Address Unknown>", 1);
-      this.residents = new ArrayList<Student>();
-      this.hasDiningRoom = false;
-      this.hasElevator = false;
-      System.out.println("You have built a house: 🏠");
+  /**
+   * Default constructor, no dingin room & no elevator
+   */
+  public House() {
+    super("<Name Unknown>", "<Address Unknown>", 1);
+    this.residents = new ArrayList<Student>();
+    this.hasDiningRoom = false;
+    this.hasElevator = false;
+    System.out.println("You have built a house: 🏠");
   }
 
   /**
@@ -24,7 +24,7 @@ public class House extends Building implements HouseRequirements{
    * @param address string, the address of the building
    */
   public House(String address) {
-      super(address); // Call default constructor
+      super(address); 
       this.hasDiningRoom = false;
       this.hasElevator = false;
       System.out.println("You have built a house: 🏠");

@@ -154,14 +154,15 @@ public class Library extends Building implements LibraryRequirements {
 
 
   public static void main(String[] args) {
-    Library neilson = new Library("Neilson", "1 Neilson Drive", 5);
-    neilson.showOptions();
-    neilson.enter();
-    neilson.goToFloor(3);
-
-    Library king = new Library("King", "1 Paradise Drive", 5);
-    king.showOptions();
-    king.enter();
-    king.goToFloor(3);
+    Library neilson1 = new Library();
+    Library neilson2 = new Library("1 Neilson Drive");
+    Library neilson3 = new Library("Neilson", "1 Neilson Drive");
+    Library neilson4 = new Library("Neilson", "1 Neilson Drive", 5);
+    neilson1.showOptions();
+    neilson1.enter();
+    neilson1.goToFloor(2);
+    neilson2.showOptions();
+    neilson3.enter();
+    neilson4.enter();
   }
 }

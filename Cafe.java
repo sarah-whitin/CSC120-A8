@@ -32,13 +32,14 @@ public class Cafe extends Building implements CafeRequirements {
         this.nCups = 2000;
         System.out.println("You have built a cafe: ☕");
     }
-    
-    /** Overloaded constructor with name, address 
+
+    /**
+     * Overloaded constructor with name and address only 
      * @param name string, the name of the building
      * @param address string, the address of the building
      */
     public Cafe(String name, String address) {
-        super(name, address, 1); // Call full constructor with 1 floor
+        super(name, address);
         this.nCoffeeOunces = 20000;
         this.nSugarPackets = 1500;
         this.nCreams = 1500;
@@ -50,6 +51,7 @@ public class Cafe extends Building implements CafeRequirements {
      * Full constructor
      * @param name string, the name of the building
      * @param address string, the address of the building
+     * @param nFloors int, the number of floors of the building
      */
     public Cafe(String name, String address, int nFloors) {
         super(name, address, nFloors);
