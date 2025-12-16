@@ -13,10 +13,6 @@ public class Cafe extends Building implements CafeRequirements {
      */
     public Cafe() {
         super("<Name Unknown>", "<Address Unknown>", 1);
-        this.nCoffeeOunces = 20000;
-        this.nSugarPackets = 1500;
-        this.nCreams = 1500;
-        this.nCups = 2000;
         System.out.println("You have built a cafe: ☕");
     }
 
@@ -25,11 +21,7 @@ public class Cafe extends Building implements CafeRequirements {
      * @param address string, the address of the building
      */
     public Cafe(String address) {
-        super(address); 
-        this.nCoffeeOunces = 20000;
-        this.nSugarPackets = 1500;
-        this.nCreams = 1500;
-        this.nCups = 2000;
+        super(address);
         System.out.println("You have built a cafe: ☕");
     }
 
@@ -40,25 +32,36 @@ public class Cafe extends Building implements CafeRequirements {
      */
     public Cafe(String name, String address) {
         super(name, address);
-        this.nCoffeeOunces = 20000;
-        this.nSugarPackets = 1500;
-        this.nCreams = 1500;
-        this.nCups = 2000;
         System.out.println("You have built a cafe: ☕");
     }
 
     /**
-     * Full constructor
+     * Overloaded constructor with name, address, and number of floors
      * @param name string, the name of the building
      * @param address string, the address of the building
      * @param nFloors int, the number of floors of the building
      */
     public Cafe(String name, String address, int nFloors) {
         super(name, address, nFloors);
-        this.nCoffeeOunces = 20000;
-        this.nSugarPackets = 1500;
-        this.nCreams = 1500;
-        this.nCups = 2000;
+        System.out.println("You have built a cafe: ☕");
+    }
+
+    /**
+     * Overloaded constructor with name, address, number of floors, and inventory items
+     * @param name string, the name of the building
+     * @param address string, the address of the building
+     * @param nFloors int, the number of floors of the building
+     * @param nCoffeeOunces int, number of coffee ounces to start with in inventory
+     * @param nSugarPackets int, number of sugar packets to start with in inventory
+     * @param nCreams int, number of creams to start with in inventory
+     * @param nCups int, number of cups to start with in inventory
+     */
+    public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
+        super(name, address, nFloors);
+        this.nCoffeeOunces = nCoffeeOunces;
+        this.nSugarPackets = nSugarPackets;
+        this.nCreams = nCreams;
+        this.nCups = nCups;
         System.out.println("You have built a cafe: ☕");
     }
 
@@ -67,6 +70,7 @@ public class Cafe extends Building implements CafeRequirements {
      * @param size int, number of ounces of coffee in order
      * @param nSugarPackets, int number of sugar packets in order
      * @param nCreams int, number of creams in order
+     * @return ArrayList<Integer>, the customer's full order, the size, number of sugar packets, and creams
      */
     private ArrayList<Integer> getOrder(int size, int nSugarPackets, int nCreams){
         ArrayList<Integer> order = new ArrayList<Integer>();
@@ -83,6 +87,7 @@ public class Cafe extends Building implements CafeRequirements {
      * @param size int, number of ounces of coffee in inventory
      * @param nSugarPackets, int number of sugar packets in inventory
      * @param nCreams int, number of creams in inventory
+     * @return ArrayList<Integer>, the inventory, or current amount of coffee (in ounces), sugar packets, creams and cups
      */
     private ArrayList<Integer> getInventory(){
         ArrayList<Integer> inventory = new ArrayList<Integer>();

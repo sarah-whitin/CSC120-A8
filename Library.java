@@ -1,12 +1,12 @@
 /* This is a stub for the Library class */
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
 
 public class Library extends Building implements LibraryRequirements {
     
   private Hashtable<String, Boolean> collection;
+  private boolean hasElevator;
   
   /**
   * Default constructor, no dingin room & no elevator, creates empty collection
@@ -39,7 +39,7 @@ public class Library extends Building implements LibraryRequirements {
     }
 
   /**
-   * Full constructor, creates empty collection
+   * Overloaded constructor with name, address, and number of floors, creates an empty collection
    * @param name string, the name of the building
    * @param address string, the address of the building
    * @param nFloors int, the number of floors of the building
@@ -47,6 +47,20 @@ public class Library extends Building implements LibraryRequirements {
   public Library(String name, String address, int nFloors) {
     super(name, address, nFloors);
     this.collection = new Hashtable<String, Boolean>();
+    System.out.println("You have built a library: 📖");
+  }
+
+  /**
+   * Full constructor, creates empty collection
+   * @param name string, the name of the building
+   * @param address string, the address of the building
+   * @param nFloors int, the number of floors of the building
+   * @param hasElevator boolean, if the library has an elevator or not
+   */
+  public Library(String name, String address, int nFloors, boolean hasElevator) {
+    super(name, address, nFloors);
+    this.collection = new Hashtable<String, Boolean>();
+    this.hasElevator = hasElevator;
     System.out.println("You have built a library: 📖");
   }
 
@@ -63,6 +77,7 @@ public class Library extends Building implements LibraryRequirements {
   /**
    * Remove a book from collections
    * @param title string, title of book to be removed from collections
+   * @return String, the name of the book
    */
   public String removeTitle(String title){
     this.collection.remove(title);
@@ -149,8 +164,11 @@ public class Library extends Building implements LibraryRequirements {
   * @param floorNum floor for user to move to
   */
   public void goToFloor(int floorNum){
-    super.goToFloor(floorNum);
-  }
+    if(this.hasElevator == true){
+      super.goToFloor(floorNum);
+    }else{
+      throw new RuntimeException("There is no elevator.");
+    }  }
 
 
   public static void main(String[] args) {

@@ -147,7 +147,7 @@ public class House extends Building implements HouseRequirements{
    */
   public void goToFloor(int floorNum){
     if(this.hasElevator == true){
-      super.goToFloor(floorNum);;
+      super.goToFloor(floorNum);
     }else{
       throw new RuntimeException("There is no elevator.");
     }
